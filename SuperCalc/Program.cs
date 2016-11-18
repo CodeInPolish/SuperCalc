@@ -10,6 +10,7 @@ namespace SuperCalc
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
         }
     }
 }
