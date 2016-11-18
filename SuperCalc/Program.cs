@@ -10,7 +10,12 @@ namespace SuperCalc
     {
         static void Main(string[] args)
         {
-            Console.ReadLine();
+            Interface HI = new Interface();
+            HI.StartMessage();
+            while(HI.running)
+            {
+                HI.Display();
+            }
         }
     }
 }
