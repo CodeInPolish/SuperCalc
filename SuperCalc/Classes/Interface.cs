@@ -29,10 +29,13 @@ namespace SuperCalc
 
         private void AnalyseInput()
         {
-            string cmd = Console.ReadLine();
+            string input = Console.ReadLine();
 
-            if(cmd.ToUpper() == "EXIT")
+            if (input.ToUpper() == "EXIT")
                 Exit();
+
+            if(running)
+                Parser.Parse(input);
         }
 
     }
