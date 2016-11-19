@@ -16,6 +16,8 @@ namespace SuperCalc
             {
                 HI.Display();
             }
+
+            Console.ReadLine();
         }
     }
 }

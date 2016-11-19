@@ -18,17 +18,22 @@ namespace SuperCalc
         public void Display()
         {
             Console.Write(">>>");
-            string cmd = Console.ReadLine();
-            string[] args = Parser.Parse(cmd);
-            foreach (string arg in args)
-            {
-                Console.WriteLine(arg);
-            }            
+            AnalyseInput();
+                      
         }
 
         private void Exit()
         {
+            running = false;
+            Console.WriteLine("Exiting");
+        }
 
+        private void AnalyseInput()
+        {
+            string cmd = Console.ReadLine();
+            Command newCMD = Parser.Parse(cmd);
+            if (newCMD.name == "EXIT")
+                Exit();
         }
 
     }
