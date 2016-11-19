@@ -8,11 +8,6 @@ namespace SuperCalc
 {
     class Parser
     {
-        public static Command Parse(string input)
-        {
-            string[] array = input.Split(' ');
-            Command newCommand = new Command(array);
-            return newCommand;
-        }
+       
     }
 }
