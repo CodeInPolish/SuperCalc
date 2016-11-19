@@ -18,8 +18,7 @@ namespace SuperCalc
         public void Display()
         {
             Console.Write(">>>");
-            AnalyseInput();
-                      
+            AnalyseInput();                      
         }
 
         private void Exit()
