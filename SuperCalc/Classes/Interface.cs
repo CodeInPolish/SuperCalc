@@ -34,6 +34,11 @@ namespace SuperCalc
             Command newCMD = Parser.Parse(cmd);
             if (newCMD.name == "EXIT")
                 Exit();
+            Console.WriteLine("{0} with args :", newCMD.name);
+            foreach (string arg in newCMD.args)
+            {
+                Console.Write("{0}\n",arg);
+            }
         }
 
     }
