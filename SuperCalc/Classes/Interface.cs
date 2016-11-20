@@ -24,7 +24,8 @@ namespace SuperCalc
         private void Exit()
         {
             running = false;
-            Console.WriteLine("Exiting");
+            Console.WriteLine("... Press any key to exit ...");
+            Console.ReadKey(true); //true = Does not display the pressed key
         }
 
         private void AnalyseInput()

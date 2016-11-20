@@ -12,12 +12,12 @@ namespace SuperCalc
         {
             Interface HI = new Interface();
             HI.StartMessage();
+
             while(HI.running)
             {
                 HI.Display();
             }
 
-            Console.ReadLine();
         }
     }
 }

@@ -10,21 +10,13 @@ namespace SuperCalc
     class Parser
     {
 
-        public static string Parse(string input)
+        public static void Parse(string input)
         {
             var digestedInput = DigestInput(input);
             string cmdName = digestedInput.Item1;
             string[] args = digestedInput.Item2;
 
-
-            foreach (var item in args)
-            {
-                Console.WriteLine(item);
-            }
-
-            Type command = ReturnCommand(cmdName);
-            ExecuteMethod(command, cmdName, digestedInput.Item2);
-            return null;
+            ExecuteMethod(cmdName, digestedInput.Item2);
        }
 
         private static Assembly LoadLib()
@@ -36,12 +28,8 @@ namespace SuperCalc
         private static Tuple<string, string[]> DigestInput(string input)
         {
             string[] array = input.Split(' ');
-            string cmd = array[0];
-            string[] args = array.Skip(1).ToArray();
 
-            Tuple<string, string[]> myTuple = new Tuple<string, string[]>(cmd, array);
-
-            return myTuple;
+            return new Tuple<string, string[]>(array[0], array.Skip(1).ToArray());
         }
 
         private static  Type ReturnCommand (string cmdName)
@@ -49,7 +37,7 @@ namespace SuperCalc
             Type obj = SeachClass(LoadLib(), cmdName);
 
             if (obj == null)
-                Console.WriteLine("{0} is not recognized command", cmdName);                
+                Console.WriteLine("{0} is not a recognized command", cmdName);                
 
             return obj;
         }
@@ -67,20 +55,20 @@ namespace SuperCalc
             return null;
         }
 
-        private static void ExecuteMethod(Type command, string methodName, string[] args)
+        private static void ExecuteMethod(string cmdName, string[] args)
         {
-            MethodInfo executeMethod = command.GetMethod("Execute");
-            string[] array = args[0].Split(';');
-            double[] polynom = { } ;
-
-            for (int i = 0; i < array.Count(); i++)
+            try 
             {
-                //polynom[i] = Convert.ToDouble(array[i]);
+                Type command = ReturnCommand(cmdName);
+                MethodInfo executeMethod = command.GetMethod("Execute");
+                object[] parameters = { args };
+                Console.WriteLine(executeMethod.Invoke(null, parameters));
             }
-
-            //double x = Convert.ToDouble(args[1]);
-            object[] parameters = { polynom, 1 };
-            Console.WriteLine(executeMethod.Invoke(null, parameters));
+            catch(Exception e)
+            {
+                Console.WriteLine("{0}", e.Message);
+            }
+            
         }
     }
 }
