@@ -20,13 +20,7 @@ namespace BasicMath
             if (args.Length == 0)
                 throw new ArgumentException("minimum 2 required argument");
 
-            double result = 0;
-
-            foreach (double i in args)
-            {
-                result += i;
-            }
-            return result;
+            return args.Sum();
         }
     }
 }
