@@ -21,7 +21,7 @@ namespace SuperCalc
 
         private static Assembly LoadLib()
         {
-            Assembly lib = Assembly.LoadFrom(@"D:\OneDrive for Business\Visual Studio Projects\Labos\SuperCalcLibs\SuperCalcLibs\bin\Debug\SuperCalcLibs.dll");
+            Assembly lib = Assembly.LoadFrom(@"F:\ECAM\3BA\2E3040 - PROJET INFO\Travail2\SuperCalcLibs\SuperCalcLibs\bin\Debug\SuperCalcLibs.dll");
             return lib;
         }
 
