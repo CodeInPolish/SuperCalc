@@ -10,7 +10,7 @@ namespace Polynomial
     public class PolynomHelper : Computer.Command
     {
 
-        public override double Execute(string[] args)
+        public override double Execute(params string[] args)
         {
             throw new NotImplementedException();
         }

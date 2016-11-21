@@ -34,7 +34,7 @@ namespace Polynomial
             return new Tuple<double[], double[], double, double>(data.Item1, data.Item2, eval_at, eval_to);
         }
 
-        public override double Execute(string[] args)
+        public override double Execute(params string[] args)
         {
             double result;
             try

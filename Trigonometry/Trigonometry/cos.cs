@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trigonometry
 {
-    public class cos : Computer.Command
+    public class cos : TrigonoHelper
     {
         string name { get { return "cos"; } }
 
@@ -17,17 +17,8 @@ namespace Trigonometry
 
         private static double evaluate(double angle)
         {
-            return Math.Cos(angle * Math.PI / 180);
+            return Math.Cos(RadiansToDegree(angle));
         }
 
-        private static double DigestInput(string[] args)
-        {
-            if (args.Count() == 1)
-            {
-                return Convert.ToDouble(args[0]);
-            }
-
-            return 0.0;
-        }
     }
 }

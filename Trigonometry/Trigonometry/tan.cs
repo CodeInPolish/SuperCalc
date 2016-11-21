@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Trigonometry
 {
-    public class tan : Computer.Command
+    public class tan : TrigonoHelper
     {
         string name { get { return "tan"; } }
 
@@ -17,17 +17,8 @@ namespace Trigonometry
 
         private static double evaluate(double angle)
         {
-            return Math.Tan(angle * Math.PI / 180);
+            return Math.Tan(RadiansToDegree(angle));
         }
 
-        private static double DigestInput(string[] args)
-        {
-            if (args.Count() == 1)
-            {
-                return Convert.ToDouble(args[0]);
-            }
-
-            return 0.0;
-        }
     }
 }
