@@ -34,7 +34,7 @@ namespace SuperCalc
 
         private static  Type ReturnCommand (string cmdName)
         {
-            Type obj = SeachClass(LoadLib(), cmdName);
+            Type obj = SearchClass(LoadLib(), cmdName);
 
             if (obj == null)
                 Console.WriteLine("{0} is not a recognized command", cmdName);                
@@ -42,7 +42,7 @@ namespace SuperCalc
             return obj;
         }
 
-        private static Type SeachClass (Assembly allAssembly, string cmdName)
+        private static Type SearchClass (Assembly allAssembly, string cmdName)
         {
             foreach (Type t in allAssembly.GetTypes())
             {
