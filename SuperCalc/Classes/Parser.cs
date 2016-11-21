@@ -46,7 +46,7 @@ namespace SuperCalc
         {
             foreach (Type t in allAssembly.GetTypes())
             {
-                if(t.IsClass && typeof(Command.Command).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
+                if(t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
                 {
                     return t;
                 }
@@ -60,7 +60,7 @@ namespace SuperCalc
             try 
             {
                 Type commandClass = ReturnCommand(cmdName);
-                Command.Command commandObj = (Command.Command)Activator.CreateInstance(commandClass);
+                Computer.Computer commandObj = (Computer.Computer)Activator.CreateInstance(commandClass);
                 Console.WriteLine(commandObj.Execute(args));
             }
             catch(ArgumentException e)

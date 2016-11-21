@@ -3,54 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Command;
 
-namespace SuperCalcLibs
+namespace Polynomial
 {
-    public class Eval : Command.Command
+    public class Eval : PolynomHelper
     {
         public new string Name { get { return "eval"; } }
 
-        private double evaluate(double[] coeffs, double eval_at)
+        private double evaluate(double[] coeffs, double[] powers, double eval_at)
         {
             double eval = 0;
 
-            foreach (double coeff in coeffs)
+            for (int i = 0; i < coeffs.Length; i++)
             {
-                eval = coeff * eval_at + eval;
+                eval += Math.Pow(eval_at, powers[i]) * coeffs[i];
             }
 
             return eval;
         }
 
-        private static Tuple<double[], double> DigestInput(string[] args)
+        private static Tuple<double[], double[], double> DigestInput(string[] args)
         {
             if (args.Count() != 2)
                 throw new ArgumentException("2 Arguments required");
 
-            double eval_at = 0.0;
-            string[] stringPolynom = args[0].Split(';');
-            double[] coeffs = new double[stringPolynom.Count()];
+            double eval_at = ConvertToDouble(args[1]);
+            Tuple<double[], double[]> data = ConvertStringPolyToCoeffs(args[0]);
 
-            try 
-            {
-                eval_at  = Convert.ToDouble(Convert.ToInt16(args[1]));
-
-                for (int i = 0; i < stringPolynom.Count(); i++)
-                {
-                    coeffs[i] = Convert.ToDouble(stringPolynom[i]);
-                }
-            }
-            catch(FormatException)
-            {
-                throw new ArgumentException("One or more arguments are invalid.");
-            }
-            catch(ArgumentException ex)
-            {
-                throw ex;
-            }
-
-            return new Tuple<double[], double> (coeffs, eval_at);
+            return new Tuple<double[], double[], double> (data.Item1, data.Item2, eval_at);
         }
 
         public override double Execute(string[] args)
@@ -58,8 +38,8 @@ namespace SuperCalcLibs
             double result;
             try
             {
-                Tuple<double[], double> data = DigestInput(args);
-                result = evaluate(data.Item1, data.Item2);
+                Tuple<double[], double[], double> data = DigestInput(args);
+                result = evaluate(data.Item1, data.Item2, data.Item3);
             }
             catch (IndexOutOfRangeException)
             {
