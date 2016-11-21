@@ -10,6 +10,6 @@ namespace Computer
     {
         string Name { get; }
 
-        double Execute(string[] args);
+        double Execute(params string[] args);
     }
 }
