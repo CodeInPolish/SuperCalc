@@ -20,16 +20,17 @@ namespace SuperCalc
             ExecuteMethod(cmdName, digestedInput.Item2);
        }
 
-        private static Assembly[] LoadLib()
+        private static List<Assembly> LoadLib()
         {
             string[] files = Directory.GetFiles(@"C:\Library", "*.dll");
-            Assembly[] assemblyArray = new Assembly[files.Length];
+            List<Assembly> assemblyList = new List<Assembly>();
 
-            for (int i = 0; i < files.Length; i++)
+            foreach (string assemblyFile in files)
             {
-                assemblyArray[i] = Assembly.LoadFrom(files[i]);
+                assemblyList.Add(Assembly.LoadFile(assemblyFile));
             }
-            return assemblyArray;
+
+            return assemblyList;
         }
 
         private static Tuple<string, string[]> DigestInput(string input)
@@ -49,13 +50,12 @@ namespace SuperCalc
             return obj;
         }
          
-        private static Type SearchClass (Assembly[] allAssembly, string cmdName)
+        private static Type SearchClass (List<Assembly> allAssembly, string cmdName)
         {
             foreach (Assembly assembly in allAssembly)
             {
                 foreach (Type t in assembly.GetTypes())
                 {
-                    Console.WriteLine(t.Name);
                     if (t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
                     {
                         return t;
