@@ -21,7 +21,7 @@ namespace SuperCalc
 
         private static Assembly LoadLib()
         {
-            Assembly lib = Assembly.LoadFrom(@"C:\Users\marci\Documents\OneDrive Entreprise\Visual Studio Projects\Labos\SuperCalcLibs\SuperCalcLibs\bin\Debug\SuperCalcLibs.dll");
+            Assembly lib = Assembly.LoadFrom(@"C:\Users\marci\Documents\OneDrive Entreprise\Visual Studio Projects\Labos\SuperCalc\Polynomial\bin\Debug\Polynomial.dll");
             return lib;
         }
 
@@ -41,12 +41,12 @@ namespace SuperCalc
 
             return obj;
         }
-
+         
         private static Type SearchClass (Assembly allAssembly, string cmdName)
         {
             foreach (Type t in allAssembly.GetTypes())
             {
-                if(t.IsClass && t.Name.ToLower() == cmdName)
+                if(t.IsClass && typeof(Command.Command).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
                 {
                     return t;
                 }
@@ -59,12 +59,11 @@ namespace SuperCalc
         {
             try 
             {
-                Type command = ReturnCommand(cmdName);
-                MethodInfo executeMethod = command.GetMethod("Execute");
-                object[] parameters = { args };
-                Console.WriteLine(executeMethod.Invoke(null, parameters));
+                Type commandClass = ReturnCommand(cmdName);
+                Command.Command commandObj = (Command.Command)Activator.CreateInstance(commandClass);
+                Console.WriteLine(commandObj.Execute(args));
             }
-            catch(Exception e)
+            catch(ArgumentException e)
             {
                 Console.WriteLine("{0}", e.Message);
             }
