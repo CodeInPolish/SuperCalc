@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Trigonometry
 {
-    class cot
+    public class cot : Computer.Command
     {
         string name { get { return "cot"; } }
 
-        public static string Execute(string[] args)
+        public override double Execute(params string[] args)
         {
-            return evaluate(DigestInput(args)).ToString();
+            return evaluate(DigestInput(args));
         }
 
         private static double evaluate(double angle)
         {
-            return Math.Tan((180+angle) * Math.PI / 180);
+            return Math.Tan((90-angle) * Math.PI / 180);
         }
 
         private static double DigestInput(string[] args)

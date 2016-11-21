@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trigonometry
 {
-    class tan
+    public class tan : Computer.Command
     {
         string name { get { return "tan"; } }
 
-        public static string Execute(string[] args)
+        public override double Execute(params string[] args)
         {
-            return evaluate(DigestInput(args)).ToString();
+            return evaluate(DigestInput(args));
         }
 
         private static double evaluate(double angle)

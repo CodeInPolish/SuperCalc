@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trigonometry
 {
-    public class cos
+    public class cos : Computer.Command
     {
         string name { get { return "cos"; } }
 
-        public static string Execute(string[] args)
+        public override double Execute(params string[] args)
         {
-            return evaluate(DigestInput(args)).ToString();
+            return evaluate(DigestInput(args));
         }
 
         private static double evaluate(double angle)
