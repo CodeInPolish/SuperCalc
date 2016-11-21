@@ -7,8 +7,8 @@
     <ProjectGuid>{5973547B-FAEF-4225-9743-6173503EA121}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicMathLib</RootNamespace>
-    <AssemblyName>BasicMathLib</AssemblyName>
+    <RootNamespace>BasicMath</RootNamespace>
+    <AssemblyName>BasicMath</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
