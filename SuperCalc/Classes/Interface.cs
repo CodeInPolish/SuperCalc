@@ -9,6 +9,7 @@ namespace SuperCalc
     class Interface
     {
         public bool running = true;
+        private bool escaped = false;
 
         public void StartMessage()
         {
@@ -23,9 +24,10 @@ namespace SuperCalc
 
         private void Exit()
         {
-            running = false;
             Console.WriteLine("... Press any key to exit ...");
-            Console.ReadKey(true); //true = Does not display the pressed key
+            char pressedKey = Console.ReadKey(true).KeyChar; //true = Does not display the pressed key
+            running = pressedKey == 27; //testing if the ESC key is pressed to cancel exit command
+            escaped = true;
         }
 
         private void AnalyseInput()
@@ -35,8 +37,12 @@ namespace SuperCalc
             if (input.ToUpper() == "EXIT")
                 Exit();
 
-            if(running)
+            if(running && !escaped) //if the console is running and we did not escape from the exit command
                 Parser.Parse(input);
+
+
+            escaped = false;
+            
         }
 
     }

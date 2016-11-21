@@ -21,7 +21,7 @@ namespace SuperCalc
 
         private static Assembly LoadLib()
         {
-            Assembly lib = Assembly.LoadFrom(@"F:\ECAM\3BA\2E3040 - PROJET INFO\Travail2\SuperCalcLibs\SuperCalcLibs\bin\Debug\SuperCalcLibs.dll");
+            Assembly lib = Assembly.LoadFrom(@"C:\Users\marci\Documents\OneDrive Entreprise\Visual Studio Projects\Labos\SuperCalc\Polynomial\bin\Debug\Polynomial.dll");
             return lib;
         }
 
@@ -34,19 +34,19 @@ namespace SuperCalc
 
         private static  Type ReturnCommand (string cmdName)
         {
-            Type obj = SeachClass(LoadLib(), cmdName);
+            Type obj = SearchClass(LoadLib(), cmdName);
 
             if (obj == null)
                 Console.WriteLine("{0} is not a recognized command", cmdName);                
 
             return obj;
         }
-
-        private static Type SeachClass (Assembly allAssembly, string cmdName)
+         
+        private static Type SearchClass (Assembly allAssembly, string cmdName)
         {
             foreach (Type t in allAssembly.GetTypes())
             {
-                if(t.IsClass && t.Name.ToLower() == cmdName)
+                if(t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
                 {
                     return t;
                 }
@@ -59,12 +59,11 @@ namespace SuperCalc
         {
             try 
             {
-                Type command = ReturnCommand(cmdName);
-                MethodInfo executeMethod = command.GetMethod("Execute");
-                object[] parameters = { args };
-                Console.WriteLine(executeMethod.Invoke(null, parameters));
+                Type commandClass = ReturnCommand(cmdName);
+                Computer.Computer commandObj = (Computer.Computer)Activator.CreateInstance(commandClass);
+                Console.WriteLine(commandObj.Execute(args));
             }
-            catch(Exception e)
+            catch(ArgumentException e)
             {
                 Console.WriteLine("{0}", e.Message);
             }
