@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="derive.cs" />
+    <Compile Include="integrate.cs" />
     <Compile Include="PolynomHelper.cs" />
     <Compile Include="eval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -21,7 +21,7 @@ namespace SuperCalc
 
         private static Assembly LoadLib()
         {
-            Assembly lib = Assembly.LoadFrom(@"C:\Users\marci\Documents\OneDrive Entreprise\Visual Studio Projects\Labos\SuperCalc\Polynomial\bin\Debug\Polynomial.dll");
+            Assembly lib = Assembly.LoadFrom(@"F:\ECAM\3BA\2E3040 - PROJET INFO\Travail2\SuperCalc\Polynomial\bin\Debug\Polynomial.dll");
             return lib;
         }
 
