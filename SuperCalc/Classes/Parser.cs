@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -19,10 +20,16 @@ namespace SuperCalc
             ExecuteMethod(cmdName, digestedInput.Item2);
        }
 
-        private static Assembly LoadLib()
+        private static Assembly[] LoadLib()
         {
-            Assembly lib = Assembly.LoadFrom(@"C:\Library\Polynomial.dll");
-            return lib;
+            string[] files = Directory.GetFiles(@"C:\Library", "*.dll");
+            Assembly[] assemblyArray = new Assembly[files.Length];
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                assemblyArray[i] = Assembly.LoadFrom(files[i]);
+            }
+            return assemblyArray;
         }
 
         private static Tuple<string, string[]> DigestInput(string input)
@@ -42,15 +49,19 @@ namespace SuperCalc
             return obj;
         }
          
-        private static Type SearchClass (Assembly allAssembly, string cmdName)
+        private static Type SearchClass (Assembly[] allAssembly, string cmdName)
         {
-            foreach (Type t in allAssembly.GetTypes())
+            foreach (Assembly assembly in allAssembly)
             {
-                if(t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
+                foreach (Type t in assembly.GetTypes())
                 {
-                    return t;
+                    Console.WriteLine(t.Name);
+                    if (t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t) && t.Name.ToLower() == cmdName)
+                    {
+                        return t;
+                    }
                 }
-            }
+            }            
 
             return null;
         }

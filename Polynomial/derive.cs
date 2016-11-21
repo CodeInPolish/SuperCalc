@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polynomial
 {
-    public class Derive : PolynomHelper
+    public class derive : PolynomHelper
     {
         public new string Name { get { return "derive"; } }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polynomial
 {
-    public class Integrate : PolynomHelper
+    public class integrate : PolynomHelper
     {
         public new string Name { get { return "integrate"; } }
 
