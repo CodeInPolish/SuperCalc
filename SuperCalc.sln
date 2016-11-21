@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polynomial", "Polynomial\Po
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trigonometry", "Trigonometry\Trigonometry\Trigonometry.csproj", "{16073D30-3438-44D7-A0FC-4096BABE12C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMathLib", "BasicMathLib\BasicMathLib.csproj", "{5973547B-FAEF-4225-9743-6173503EA121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{16073D30-3438-44D7-A0FC-4096BABE12C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16073D30-3438-44D7-A0FC-4096BABE12C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16073D30-3438-44D7-A0FC-4096BABE12C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5973547B-FAEF-4225-9743-6173503EA121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5973547B-FAEF-4225-9743-6173503EA121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5973547B-FAEF-4225-9743-6173503EA121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5973547B-FAEF-4225-9743-6173503EA121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
