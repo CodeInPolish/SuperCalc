@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add.cs" />
     <Compile Include="BasicMathHelper.cs" />
-    <Compile Include="addition.cs" />
+    <Compile Include="div.cs" />
+    <Compile Include="mult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Command\Command.csproj">

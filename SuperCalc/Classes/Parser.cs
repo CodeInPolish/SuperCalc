@@ -25,7 +25,7 @@ namespace SuperCalc
             return "";
        }
 
-       //Loads a List of assembly from a folder
+       //Loads a List of assemblies from a folder
         private static List<Assembly> LoadLib()
         {
             string[] files = Directory.GetFiles(@"C:\Library", "*.dll"); //returns the entire filepath to all .dll files inside directory
