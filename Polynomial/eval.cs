@@ -10,6 +10,14 @@ namespace Polynomial
     {
         public override string Name { get { return "eval"; } }
 
+        public override string Help
+        {
+            get
+            {
+                return "help message for eval command";
+            }
+        }
+
         private double evaluate(double[] coeffs, double[] powers, double eval_at)
         {
             double eval = 0;
