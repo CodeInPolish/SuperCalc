@@ -23,7 +23,7 @@ namespace BasicMath
             foreach (double i in args.Skip(1))
             {
                 if (i == 0)
-                    throw new Exception("Division by zero impossible");
+                    throw new Exception("Cannot divide by zero");
                 else
                 {
                     result = result / i;
