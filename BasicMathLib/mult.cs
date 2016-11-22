@@ -14,7 +14,7 @@ namespace BasicMath
         {
             get
             {
-                return "Successive multiplication of elements separated by a space";
+                return "Successive multiplication of elements separated by a space\nCalling method example: mult 5 6 8";
             }
         }
 

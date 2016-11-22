@@ -14,7 +14,7 @@ namespace BasicMath
         {
             get
             {
-                return "Successive substraction of elements separated by a space";
+                return "Successive substraction of elements separated by a space\nCalling method example: sub 5 6 8";
             }
         }
 

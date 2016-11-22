@@ -14,7 +14,7 @@ namespace BasicMath
         {
             get
             {
-                return "Successive division of elements separated by a space";
+                return "Successive division of elements separated by a space\nCalling method example: div 5 6 8";
             }
         }
 

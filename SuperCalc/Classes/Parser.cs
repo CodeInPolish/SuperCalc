@@ -34,7 +34,7 @@ namespace SuperCalc
             else 
             {
                 if (input.ToUpper() == "LISTALL")
-                    return ListAllCommands() + "\nUse the command : fonction -h to have a description of the fonction";
+                    return ListAllCommands() + "\nUse the command : \"commandName -h\" to have a description of the fonction";
             }
 
             return "";
@@ -66,7 +66,7 @@ namespace SuperCalc
 
         private string ListAllCommands()
         {
-            StringBuilder sb = new StringBuilder();
+            List<string> sb = new List<string>();
 
             foreach (Assembly assembly in assemblies)
             {
@@ -77,14 +77,18 @@ namespace SuperCalc
                         try 
                         {
                             Computer.Command commandObj = (Computer.Command)Activator.CreateInstance(t);
-                            sb.Append(commandObj.Name + "\n");
+                            sb.Add(commandObj.Name + "\n");
                         }
-                        catch(NotImplementedException) {} //Do nothing if Name is not implemented
+                        //Do nothing if Name is not implemented
+                        // if Name is not implemented, it means it is not a command we can use
+                        catch (NotImplementedException) {} 
                     }
                 }
             }
 
-            return sb.ToString().TrimEnd(Environment.NewLine.ToCharArray());
+            //Orders the list of string in an alphabetical order, then joins every string into one big string
+            // then Trims the end of it, to contains no new line
+            return String.Join("", sb.OrderBy(str => str)).TrimEnd(Environment.NewLine.ToCharArray());
         }
 
         //Returns a Class from the loaded assemblies, given its name

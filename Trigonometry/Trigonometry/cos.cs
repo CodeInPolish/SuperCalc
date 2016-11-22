@@ -14,7 +14,7 @@ namespace Trigonometry
         {
             get
             {
-                return "Compute the cosinus of the given angle (in degree)";
+                return "Compute the cosinus of the given angle (in degree)\nCalling method example: cos 15";
             }
         }
 

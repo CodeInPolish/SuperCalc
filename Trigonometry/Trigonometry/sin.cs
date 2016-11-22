@@ -14,7 +14,7 @@ namespace Trigonometry
         {
             get
             {
-                return "Compute the sinus of the given angle (in degree)";
+                return "Compute the sinus of the given angle (in degree)\nCalling method example: sin 15";
             }
         }
 

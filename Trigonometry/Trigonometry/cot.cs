@@ -14,7 +14,7 @@ namespace Trigonometry
         {
             get
             {
-                return "Compute the cotangent of the given angle (in degree)";
+                return "Compute the cotangent of the given angle (in degree)\nCalling method example: cot 15";
             }
         }
 

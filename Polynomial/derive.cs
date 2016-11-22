@@ -14,7 +14,7 @@ namespace Polynomial
         {
             get
             {
-                return "You can write : derive 2x^3+6x^2+3x+8 5 \nIt compute the derivate of the polynome at x = 5 ";
+                return "Evaluates the derivate of the polynom at x\nCalling method example: derive 2x^3+6x^2+3x+8 5";
             }
         }
 

@@ -14,7 +14,7 @@ namespace Polynomial
         {
             get
             {
-                return "You can write : integrate 2x^3+6x^2+3x+8 0 2 \nIt compute the integrate of the polynome from 0 to 2";
+                return "Evaluatesthe integral of the polynom from a to b\nCalling method example: integrate 2x^3+6x^2+3x+8 0 2";
             }
         }
 

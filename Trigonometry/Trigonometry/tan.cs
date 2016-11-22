@@ -14,7 +14,7 @@ namespace Trigonometry
         {
             get
             {
-                return "Compute the tangent of the given angle (in degree)";
+                return "Compute the tangent of the given angle (in degree)\nCalling method example: tan 15";
             }
         }
 

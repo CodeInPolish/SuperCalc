@@ -14,7 +14,7 @@ namespace Polynomial
         {
             get
             {
-                return "You can write : eval 2x^3+6x^2+3x+8 5 \nIt compute the polynome at x = 5 ";
+                return "Evaluates the polynom at x\nCalling method example: eval 2x^3+6x^2+3x+8 3";
             }
         }
 
