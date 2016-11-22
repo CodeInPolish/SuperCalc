@@ -10,6 +10,8 @@ namespace Computer
     {
         public abstract string Name { get; }
 
+        public abstract string Help { get; }
+
         public abstract double Execute(params string[] args);
     }
 }

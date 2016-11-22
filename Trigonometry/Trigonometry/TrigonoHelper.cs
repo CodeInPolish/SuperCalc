@@ -16,6 +16,14 @@ namespace Trigonometry
             }
         }
 
+        public override string Help
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override double Execute(params string[] args)
         {
             throw new NotImplementedException();
