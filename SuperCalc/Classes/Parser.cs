@@ -31,6 +31,11 @@ namespace SuperCalc
                 return ExecuteMethod(cmdName, args); // ExecuteMethod return a message (string) 
                                                      //that is either data or an exception message
             }
+            else 
+            {
+                if (input.ToUpper() == "LISTALL")
+                    ListAllCommands();
+            }
 
             return "";
        }
@@ -57,6 +62,29 @@ namespace SuperCalc
             string[] array = input.Split(' ');
 
             return new Tuple<string, string[]>(array[0], array.Skip(1).ToArray()); //Tuple( commandName, arguments)
+        }
+
+        private string ListAllCommands()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Assembly assembly in assemblies)
+            {
+                foreach (Type t in assembly.GetTypes())
+                {
+                    if(t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t))
+                    {
+                        Computer.Command commandObj = (Computer.Command)Activator.CreateInstance(t);
+                        try 
+                        { 
+                            sb.Append(commandObj.Name);
+                        }
+                        catch(NotImplementedException) { continue; } //Continue the loop if Name is not implemented
+                    }
+                }
+            }
+
+            return sb.ToString();
         }
 
         //Returns a Class from the loaded assemblies, given its name
