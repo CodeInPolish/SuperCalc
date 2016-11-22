@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicMath
 {
-    class addition : BasicMathHelper
+    class div : BasicMathHelper
     {
-        string name { get { return "addition"; } }
+        string name { get { return "div"; } }
 
         public override double Execute(params string[] args)
         {
@@ -17,14 +17,17 @@ namespace BasicMath
 
         private double evaluate(double[] args)
         {
-            if (args.Length == 0)
-                throw new ArgumentException("minimum 2 required argument");
 
-            double result = 0;
+            double result = args[0];
 
-            foreach (double i in args)
+            foreach (double i in args.Skip(1))
             {
-                result += i;
+                if (i == 0)
+                    throw new Exception("Division by zero impossible");
+                else
+                {
+                    result = result / i;
+                }
             }
             return result;
         }

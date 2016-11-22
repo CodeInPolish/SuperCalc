@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicMathHelper.cs" />
-    <Compile Include="addition.cs" />
+    <Compile Include="add.cs" />
+    <Compile Include="div.cs" />
+    <Compile Include="mult.cs" />
+    <Compile Include="sub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
