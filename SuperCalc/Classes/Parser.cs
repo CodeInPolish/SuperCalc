@@ -90,7 +90,7 @@ namespace SuperCalc
         //Returns a Class from the loaded assemblies, given its name
         private Type ReturnCommand (string cmdName)
         {
-            Type obj = SearchClass(assemblies, cmdName);
+            Type obj = SearchClass(cmdName);
 
             if (obj == null)
                 throw new ArgumentException(cmdName + " is not a recognized command");                
@@ -99,9 +99,9 @@ namespace SuperCalc
         }
          
         //Searches in allAssembly for a class that matches the cmdName
-        private Type SearchClass (List<Assembly> allAssembly, string cmdName)
+        private Type SearchClass (string cmdName)
         {
-            foreach (Assembly assembly in allAssembly)
+            foreach (Assembly assembly in assemblies)
             {
                 foreach (Type t in assembly.GetTypes())
                 {
