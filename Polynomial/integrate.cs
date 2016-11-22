@@ -10,6 +10,14 @@ namespace Polynomial
     {
         public override string Name { get { return "integrate"; } }
 
+        public override string Help
+        {
+            get
+            {
+                return "You can write : integrate 2x^3+6x^2+3x+8 0 2 \nIt compute the integrate of the polynome from 0 to 2";
+            }
+        }
+
         private double evaluate(double[] coeffs, double[] powers, double integrate_from, double integrate_to)
         {
             double integrate = 0;

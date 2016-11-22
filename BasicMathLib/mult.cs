@@ -10,6 +10,14 @@ namespace BasicMath
     {
         public override string Name { get { return "mult"; } }
 
+        public override string Help
+        {
+            get
+            {
+                return "Successive multiplication of elements separated by a space";
+            }
+        }
+
         public override double Execute(params string[] args)
         {
             return evaluate(ConvertToDouble(args));

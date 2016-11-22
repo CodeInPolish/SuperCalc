@@ -34,7 +34,7 @@ namespace SuperCalc
             else 
             {
                 if (input.ToUpper() == "LISTALL")
-                    return ListAllCommands();
+                    return ListAllCommands() + "\nUse the command : fonction -h to have a description of the fonction";
             }
 
             return "";

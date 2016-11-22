@@ -10,6 +10,14 @@ namespace Polynomial
     {
         public override string Name { get { return "derive"; } }
 
+        public override string Help
+        {
+            get
+            {
+                return "You can write : derive 2x^3+6x^2+3x+8 5 \nIt compute the derivate of the polynome at x = 5 ";
+            }
+        }
+
         private double evaluate(double[] coeffs, double[] powers, double derive_at)
         {
             double derive = 0;

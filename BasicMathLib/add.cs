@@ -10,7 +10,13 @@ namespace BasicMath
     {
         public override string Name { get { return "add"; } }
 
-        string Help { get { return "help"; } }
+        public override string Help
+        {
+            get
+            {
+                return "Successive addition of elements separated by a space";
+            }
+        }
 
         public override double Execute(params string[] args)
         {

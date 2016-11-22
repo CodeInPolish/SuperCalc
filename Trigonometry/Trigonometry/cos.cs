@@ -10,6 +10,14 @@ namespace Trigonometry
     {
         public override string Name { get { return "cos"; } }
 
+        public override string Help
+        {
+            get
+            {
+                return "Compute the cosinus of the given angle (in degree)";
+            }
+        }
+
         public override double Execute(params string[] args)
         {
             return evaluate(DigestInput(args));
