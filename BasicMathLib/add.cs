@@ -8,7 +8,7 @@ namespace BasicMath
 {
     class add : BasicMathHelper
     {
-        new string Name { get { return "add"; } }
+        public new string Name { get { return "add"; } }
 
         string Help { get { return "help"; } }
 

@@ -8,7 +8,7 @@ namespace Trigonometry
 {
     public class sin : TrigonoHelper
     {
-        string name { get { return "sin"; } }
+        public new string Name { get { return "sin"; } }
 
         public override double Execute(params string[] args)
         {

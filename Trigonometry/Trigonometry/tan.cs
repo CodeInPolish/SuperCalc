@@ -8,7 +8,7 @@ namespace Trigonometry
 {
     public class tan : TrigonoHelper
     {
-        string name { get { return "tan"; } }
+        public new string Name { get { return "tan"; } }
 
         public override double Execute(params string[] args)
         {

@@ -8,7 +8,7 @@ namespace Trigonometry
 {
     public class cot : TrigonoHelper
     {
-        string name { get { return "cot"; } }
+        public new string Name { get { return "cot"; } }
 
         public override double Execute(params string[] args)
         {

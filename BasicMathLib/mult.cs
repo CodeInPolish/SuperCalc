@@ -8,7 +8,7 @@ namespace BasicMath
 {
     class mult : BasicMathHelper
     {
-        new string Name { get { return "mult"; } }
+        public new string Name { get { return "mult"; } }
 
         public override double Execute(params string[] args)
         {

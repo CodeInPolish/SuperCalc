@@ -8,7 +8,7 @@ namespace BasicMath
 {
     class div : BasicMathHelper
     {
-        new string Name { get { return "div"; } }
+        public new string Name { get { return "div"; } }
 
         public override double Execute(params string[] args)
         {
