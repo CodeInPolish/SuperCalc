@@ -17,7 +17,7 @@ namespace BasicMath
 
         private double evaluate(double[] args)
         {
-    
+
             double result = 0;
 
             foreach (double i in args)
