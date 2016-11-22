@@ -16,8 +16,8 @@ namespace SuperCalc
         public void StartMessage()
         {
             Console.WriteLine("**__-- SuperCalc --__**\n\n" +
-                                "Use \"listall\" to list all the available commands\n" + 
-                                "Or use the commands if you already know them!");
+                              "Use \"listall\" to list all the available commands\n" + 
+                              "Or use the commands if you already know them!");
         }
 
         //Controls the display, to be placed in a while(running) loop
