@@ -10,6 +10,8 @@ namespace Polynomial
     public class PolynomHelper : Computer.Command
     {
 
+        public new string Name { get { return "PolynomHelper"; } }
+
         public override double Execute(params string[] args)
         {
             throw new NotImplementedException();

@@ -8,9 +8,19 @@ using System.Threading.Tasks;
 
 namespace SuperCalc
 {
-    class Parser
+    public class Parser
     {
-        public static string Parse(string input, string[] inputToIgnore)
+
+        private List<Assembly> assemblies = new List<Assembly>();
+
+        public Parser(params string[] args)
+        {
+            string folderPath = args[0];
+            string filter = args[1];
+            assemblies = LoadLib(folderPath, filter);
+        }
+
+        public string Parse(string input, string[] inputToIgnore)
         {
             if (!inputToIgnore.Contains(input.ToUpper())) 
             {
@@ -26,9 +36,11 @@ namespace SuperCalc
        }
 
        //Loads a List of assemblies from a folder
-        private static List<Assembly> LoadLib()
+        private List<Assembly> LoadLib(params string[] args)
         {
-            string[] files = Directory.GetFiles(@"C:\Library", "*.dll"); //returns the entire filepath to all .dll files inside directory
+            string folderPath = args[0];
+            string filter = args[1];
+            string[] files = Directory.GetFiles(folderPath, filter); //returns the entire filepath to all .dll files inside directory
             List<Assembly> assemblyList = new List<Assembly>();
 
             foreach (string assemblyFile in files)
@@ -40,7 +52,7 @@ namespace SuperCalc
         }
 
         //Splits the command name and arguments
-        private static Tuple<string, string[]> DigestInput(string input)
+        private Tuple<string, string[]> DigestInput(string input)
         {
             string[] array = input.Split(' ');
 
@@ -48,9 +60,9 @@ namespace SuperCalc
         }
 
         //Returns a Class from the loaded assemblies, given its name
-        private static  Type ReturnCommand (string cmdName)
+        private Type ReturnCommand (string cmdName)
         {
-            Type obj = SearchClass(LoadLib(), cmdName); 
+            Type obj = SearchClass(assemblies, cmdName); 
 
             if (obj == null)
                 Console.WriteLine("{0} is not a recognized command", cmdName);                
@@ -59,7 +71,7 @@ namespace SuperCalc
         }
          
         //Searches in allAssembly for a class that matches the cmdName
-        private static Type SearchClass (List<Assembly> allAssembly, string cmdName)
+        private Type SearchClass (List<Assembly> allAssembly, string cmdName)
         {
             foreach (Assembly assembly in allAssembly)
             {
@@ -78,14 +90,17 @@ namespace SuperCalc
         }
 
         //Instatiates a class and calls it's Execute() method
-        private static string ExecuteMethod(string cmdName, string[] args)
+        private string ExecuteMethod(string cmdName, string[] args)
         {
             string result = "";
             try 
             {
                 Type commandClass = ReturnCommand(cmdName);
                 Computer.Computer commandObj = (Computer.Computer)Activator.CreateInstance(commandClass);
-                result = commandObj.Execute(args).ToString();
+                if (args.Count() > 0 && args[0] == "-h")
+                    result = commandObj.Name;
+                else
+                    result = commandObj.Execute(args).ToString();
             }
             catch(Exception e)
             {

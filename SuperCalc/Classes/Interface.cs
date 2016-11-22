@@ -9,7 +9,8 @@ namespace SuperCalc
     class Interface
     {
         public bool running = true; //Flag indicating that the Interface is running
-        private string[] inputToIgnore = new string[1] {"EXIT"}; 
+        private string[] inputToIgnore = new string[1] {"EXIT"};
+        private Parser parser = new Parser(@"C:\Library", "*.dll");
 
         //Display a message at start-up
         public void StartMessage()
@@ -44,7 +45,7 @@ namespace SuperCalc
                 Exit();
 
             if(running) //if the console is running and we did not escape from the exit command
-                message = Parser.Parse(input, inputToIgnore );
+                message = parser.Parse(input, inputToIgnore);
 
             //escaped = false;
             return message;
