@@ -8,7 +8,7 @@ namespace Polynomial
 {
     public class integrate : PolynomHelper
     {
-        public new string Name { get { return "integrate"; } }
+        public override string Name { get { return "integrate"; } }
 
         private double evaluate(double[] coeffs, double[] powers, double integrate_from, double integrate_to)
         {

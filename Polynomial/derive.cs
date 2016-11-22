@@ -8,7 +8,7 @@ namespace Polynomial
 {
     public class derive : PolynomHelper
     {
-        public new string Name { get { return "derive"; } }
+        public override string Name { get { return "derive"; } }
 
         private double evaluate(double[] coeffs, double[] powers, double derive_at)
         {

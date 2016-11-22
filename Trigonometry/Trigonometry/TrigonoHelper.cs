@@ -8,6 +8,14 @@ namespace Trigonometry
 {
     public class TrigonoHelper : Computer.Command
     {
+        public override string Name
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override double Execute(params string[] args)
         {
             throw new NotImplementedException();

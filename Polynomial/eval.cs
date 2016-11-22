@@ -8,7 +8,7 @@ namespace Polynomial
 {
     public class eval : PolynomHelper
     {
-        public new string Name { get { return "eval"; } }
+        public override string Name { get { return "eval"; } }
 
         private double evaluate(double[] coeffs, double[] powers, double eval_at)
         {

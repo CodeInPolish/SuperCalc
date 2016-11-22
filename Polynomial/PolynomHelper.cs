@@ -9,8 +9,13 @@ namespace Polynomial
 {
     public class PolynomHelper : Computer.Command
     {
-
-        public new string Name { get { return "PolynomHelper"; } }
+        public override string Name
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public override double Execute(params string[] args)
         {

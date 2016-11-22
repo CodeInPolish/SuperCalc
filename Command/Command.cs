@@ -8,7 +8,7 @@ namespace Computer
 {
     public abstract class Command : Computer
     {
-        public string Name { get; }
+        public abstract string Name { get; }
 
         public abstract double Execute(params string[] args);
     }

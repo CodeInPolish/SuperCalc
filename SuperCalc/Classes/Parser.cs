@@ -97,13 +97,12 @@ namespace SuperCalc
             {
                 Type commandClass = ReturnCommand(cmdName);
                 Computer.Computer commandObj = (Computer.Computer)Activator.CreateInstance(commandClass);
-                Console.WriteLine(commandObj.Name);
                 if (args.Count() > 0 && args[0] == "-h")
                     result = commandObj.Name;
                 else
                     result = commandObj.Execute(args).ToString();
             }
-            catch(Exception e)
+            catch(ArgumentException e)
             {
                 result = e.Message;
             }
