@@ -10,7 +10,7 @@ namespace SuperCalc
     {
         public bool running = true; //Flag indicating that the Interface is running
         private string[] inputToIgnore = new string[1] {"EXIT"};
-        private Parser parser = new Parser(@"C:\Library", "*.dll");
+        private Parser parser = new Parser(@"C:\Library", "*.dll"); //Creates a new parser
 
         //Display a message at start-up
         public void StartMessage()
