@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BasicMath
 {
-    class mult : BasicMathHelper
+    class add : BasicMathHelper
     {
-        string name { get { return "mult"; } }
+        string name { get { return "add"; } }
 
         public override double Execute(params string[] args)
         {
@@ -17,11 +17,12 @@ namespace BasicMath
 
         private double evaluate(double[] args)
         {
-            double result = args[0];
 
-            foreach (double i in args.Skip(1))
+            double result = 0;
+
+            foreach (double i in args)
             {
-                result = result*i;
+                result += i;
             }
             return result;
         }
