@@ -34,7 +34,7 @@ namespace SuperCalc
             else 
             {
                 if (input.ToUpper() == "LISTALL")
-                    ListAllCommands();
+                    return ListAllCommands();
             }
 
             return "";
@@ -74,17 +74,17 @@ namespace SuperCalc
                 {
                     if(t.IsClass && typeof(Computer.Computer).IsAssignableFrom(t))
                     {
-                        Computer.Command commandObj = (Computer.Command)Activator.CreateInstance(t);
                         try 
-                        { 
-                            sb.Append(commandObj.Name);
+                        {
+                            Computer.Command commandObj = (Computer.Command)Activator.CreateInstance(t);
+                            sb.Append(commandObj.Name + "\n");
                         }
-                        catch(NotImplementedException) { continue; } //Continue the loop if Name is not implemented
+                        catch(NotImplementedException) {} //Do nothing if Name is not implemented
                     }
                 }
             }
 
-            return sb.ToString();
+            return sb.ToString().TrimEnd(Environment.NewLine.ToCharArray());
         }
 
         //Returns a Class from the loaded assemblies, given its name
