@@ -62,10 +62,10 @@ namespace SuperCalc
         //Returns a Class from the loaded assemblies, given its name
         private Type ReturnCommand (string cmdName)
         {
-            Type obj = SearchClass(assemblies, cmdName); 
+            Type obj = SearchClass(assemblies, cmdName);
 
             if (obj == null)
-                Console.WriteLine("{0} is not a recognized command", cmdName);                
+                throw new ArgumentException(cmdName + " is not a recognized command");                
 
             return obj;
         }
