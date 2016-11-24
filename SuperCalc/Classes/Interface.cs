@@ -37,6 +37,13 @@ namespace SuperCalc
             //escaped = true;
         }
 
+        private void ListAll()
+        {
+            string data = parser.ListAllCommands();
+            Console.WriteLine(data);
+            Console.WriteLine("\nUse the command : \"<commandName> -h\" to have a description of the command");        
+        }
+
         //Reads input and calls the Parser
         private string AnalyseInput()
         {
@@ -46,8 +53,11 @@ namespace SuperCalc
             if (input.ToUpper() == "EXIT")
                 Exit();
 
-            if(running) //if the console is running and we did not escape from the exit command
-                message = parser.Parse(input, inputToIgnore);
+            if (input.ToUpper() == "LISTALL")
+                ListAll();
+
+            if (running) //if the console is running and we did not escape from the exit command
+            message = parser.Parse(input, inputToIgnore);
 
             //escaped = false;
             return message;

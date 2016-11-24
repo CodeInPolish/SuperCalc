@@ -31,11 +31,6 @@ namespace SuperCalc
                 return ExecuteMethod(cmdName, args); // ExecuteMethod return a message (string) 
                                                      //that is either data or an exception message
             }
-            else 
-            {
-                if (input.ToUpper() == "LISTALL")
-                    return ListAllCommands() + "\nUse the command : \"commandName -h\" to have a description of the command";
-            }
 
             return "";
        }
@@ -59,12 +54,12 @@ namespace SuperCalc
         //Splits the command name and arguments
         private Tuple<string, string[]> DigestInput(string input)
         {
-            string[] array = input.Split(' ');
+            string[] array = input.TrimStart(' ').Split(' ');
 
             return new Tuple<string, string[]>(array[0], array.Skip(1).ToArray()); //Tuple( commandName, arguments)
         }
 
-        private string ListAllCommands()
+        public string ListAllCommands()
         {
             List<string> sb = new List<string>();
 
