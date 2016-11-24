@@ -40,8 +40,8 @@ namespace SuperCalc
         private void ListAll()
         {
             string data = parser.ListAllCommands();
-            Console.WriteLine(data);
-            Console.WriteLine("\nUse the command : \"<commandName> -h\" to have a description of the command");        
+            Console.Write(data);
+            Console.Write("\n\nUse the command : \"<commandName> -h\" to have a description of the command");        
         }
 
         //Reads input and calls the Parser
